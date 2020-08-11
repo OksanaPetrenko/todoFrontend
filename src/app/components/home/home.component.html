@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="container">
+    <mat-tab-group [selectedIndex]="activeTab" (selectedTabChange)="locateTab($event)">
+        <mat-tab *ngFor="let arrTypeTasks of tasks; let i = index" label="{{arrTypeTasks[0]}}">
+            <p *ngIf="arrTypeTasks[1].length == 0" class="text-notask">No tasks</p>
+            <div class="wrapper-block-tasks">
+                <div class="block-task" *ngFor="let task of arrTypeTasks[1]">
+                    <div [ngClass]="{'color-low' : (task.priority == 0), 'color-middle' : (task.priority == 1)}"  class="priority"></div>
+                    <mat-checkbox [checked]="task.status" class="status-check" (click)="updateStatus(!task.status, task.id)"></mat-checkbox>
+                    <div class="wrapper-name"><p>{{task.name}}<p></div>
+                    <a class="btn-action" [routerLink]="['/task/edit', task.id]"><mat-icon aria-hidden="false" aria-label="Example mode_edit icon">mode_edit</mat-icon></a>
+                    <span class="btn-action" (click)="openDialog(task, i)"><mat-icon aria-hidden="false" aria-label="Example delete icon">delete</mat-icon></span>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+    <div class="button-add">
+        <a routerLink="/task/create" mat-button mat-raised-button color="primary">new task</a>
+    </div>
+</div>
+

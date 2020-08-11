@@ -1,0 +1,109 @@
+@import "../../../assets/css/variable";
+:host{
+}
+.mat-tab-group{
+    margin-top: 100px;
+    .mat-tab-body{
+        overflow: hidden;
+    }
+    .text-notask{
+        text-align: center;
+        font-size: 30px;
+        color: $color-gray;
+    }
+}
+table{
+    width: 100%;
+    margin-top: 20px;
+    border-spacing: 0;
+    tr{
+        background-color: $color-main-lighten;
+        td{
+            padding: 20px 0px;
+            position: relative;
+
+            &:nth-child(2){
+                text-align: center;
+            }
+            .priority{
+                width: 15px;
+                height: 74px;
+                position: absolute;
+                top: 0;
+                background-color: lighten($color-priority-hight,25%);
+
+                &.color-low{
+                    background-color: lighten($color-priority-low,20%);
+                }
+                &.color-middle{
+                    background-color: lighten($color-priority-medium,20%);
+                }
+            }
+        }
+        &:nth-child(odd){
+            background-color: lighten($color-main ,50%);
+        }
+    }
+    
+    .mat-icon{
+        font-size: 30px;
+        color: $color-main ;
+        cursor: pointer;
+
+        &:hover{
+            color: lighten($color-main ,20%); 
+        }
+    }
+}
+.button-add{
+    text-align: right;
+    margin-top: 20px;
+    .mat-button{
+        a{
+            color: $color-white;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+        &:hover{
+            background-color: lighten($color-main ,7%);
+        }
+    }
+}
+.wrapper-block-tasks{
+    margin-top: 30px;
+    .block-task{
+        display: flex;
+        align-items: center;
+        background-color: $color-main-lighten;
+        &:nth-child(odd){
+            background-color: lighten($color-main ,50%);
+        }
+        .priority{
+            width: 15px;
+            height: 74px;
+            background-color: lighten($color-priority-hight,25%);
+            &.color-low{
+                background-color: lighten($color-priority-low,20%);
+            }
+            &.color-middle{
+                background-color: lighten($color-priority-medium,20%);
+            }
+        }
+        .status-check, .btn-action{
+            width: 5%;
+            text-align: center;
+        }
+        .mat-icon{
+            font-size: 30px;
+            color: $color-main ;
+            cursor: pointer;
+    
+            &:hover{
+                color: lighten($color-main ,20%); 
+            } 
+        }
+        .wrapper-name{
+            width: 84%;
+        }
+    }
+}

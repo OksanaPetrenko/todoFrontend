@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="wrapper-form">
+    <mat-card>
+        <h2>Edit task</h2>
+        <form class="example-form" [formGroup]="editTaskForm" (ngSubmit)="editTask()">
+            <mat-form-field>
+                <mat-label for="taskname">Name</mat-label>
+                <input matInput type="text" formControlName="taskname">
+                <div class="alert alert-danger"
+                    *ngIf="editTaskForm.controls['taskname'].invalid && editTaskForm.controls['taskname'].touched">
+                    name is required
+                </div>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Priority</mat-label>
+                <mat-select formControlName="priority">
+                    <mat-option *ngFor="let priority of priorities" [value]="priority.value">
+                    {{priority.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="date">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+                <div class="alert alert-danger"
+                    *ngIf="editTaskForm.controls['date'].invalid && editTaskForm.controls['date'].touched">
+                    date is required
+                </div>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status">
+                    <mat-option *ngFor="let stat of status" [value]="stat.value">
+                        {{stat.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-button mat-raised-button color="primary">Update</button>
+            <a routerLink="/" mat-button mat-raised-button color="primary">Back</a>
+        </form>
+    </mat-card>
+</div>

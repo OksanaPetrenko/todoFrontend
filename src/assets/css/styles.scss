@@ -1,0 +1,56 @@
+@import "variable";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.container{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+.wrapper-form{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .mat-card{
+        max-width: 400px;
+
+        .mat-form-field{
+            display: block;
+
+            .mat-form-field-infix{
+                width: 400px;
+            }
+        }
+        a{
+            margin-left: 20px;
+        }
+    }
+}
+.mat-raised-button[disabled][disabled]{
+    background-color: $color-main;  
+    color: $color-white;  
+}
+.alert.alert-danger{
+    color: $color-gray;
+    font-size: 15px;
+}
+.status-done{
+    text-decoration: line-through;
+}
+.arrow-back{
+    margin: 30px 20px;
+    .mat-icon{
+        color: $color-main;
+        font-size: 30px;
+    }
+}
+.mat-checkbox-checked.mat-accent .mat-checkbox-background{
+    background-color: $color-main;
+}
+.mat-checkbox .mat-checkbox-ripple{
+    display: none;
+}
+.mat-tab-label-content{
+    text-transform: capitalize;
+}
